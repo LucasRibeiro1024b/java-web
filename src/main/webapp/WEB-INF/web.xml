@@ -12,4 +12,14 @@
 		<welcome-file>default.jsp</welcome-file>
 		<welcome-file>default.htm</welcome-file>
 	</welcome-file-list>
+	
+	<servlet>
+		<servlet-name>primeiraServlet</servlet-name>
+		<servlet-class>servlet.TchauJacare</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>primeiraServlet</servlet-name>
+		<url-pattern>/oi</url-pattern>
+	</servlet-mapping>
 </web-app>
