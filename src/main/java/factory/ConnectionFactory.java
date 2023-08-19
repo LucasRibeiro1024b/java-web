@@ -10,7 +10,7 @@ public class ConnectionFactory {
         	Class.forName("com.mysql.jdbc.Driver");
 
             return DriverManager.getConnection(
-                    "jdbc:mysql://localhost/fj21", "root", "roo-t");
+                    "jdbc:mysql://localhost/fj21", "root", "root");
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
