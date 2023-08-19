@@ -19,40 +19,6 @@ import model.Contato;
 @WebServlet("/adicionaContato")
 public class AdicionaContatoServlet extends HttpServlet {
 	
-//	@Override
-//	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		PrintWriter out = response.getWriter();
-//		
-//		String nome = request.getParameter("nome");
-//		String email = request.getParameter("email");
-//		String endereco = request.getParameter("endereco");
-//		String dataTexto = request.getParameter("dataNascimento");
-//		Calendar dataNascimento = null;
-//		
-//		try {
-//			Date date = new SimpleDateFormat("dd/MM/YYYY")
-//					.parse(dataTexto);
-//			dataNascimento = Calendar.getInstance();
-//			dataNascimento.setTime(date);
-//		} catch (ParseException e) {
-//			out.println("Erro de conversão de data.");
-//			return;
-//		}
-//		
-//		Contato contato = new Contato();
-//		contato.setNome(nome);
-//		contato.setEmail(email);
-//		contato.setEndereco(endereco);
-//		contato.setDataNascimento(dataNascimento);
-//		
-//		ContatoDAO dao = new ContatoDAO();
-//		dao.adiciona(contato);
-//		
-//		out.println("<p>");
-//		out.println("Contato Adicionado!");
-//		out.println("</p>");
-//	}
-	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
@@ -61,8 +27,42 @@ public class AdicionaContatoServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String endereco = request.getParameter("endereco");
 		String dataTexto = request.getParameter("dataNascimento");
+		Calendar dataNascimento = null;
 		
-		out.println("POST Detected");
+		try {
+			Date date = new SimpleDateFormat("dd/MM/YYYY")
+					.parse(dataTexto);
+			dataNascimento = Calendar.getInstance();
+			dataNascimento.setTime(date);
+		} catch (ParseException e) {
+			out.println("Erro de conversão de data.");
+			return;
+		}
+		
+		Contato contato = new Contato();
+		contato.setNome(nome);
+		contato.setEmail(email);
+		contato.setEndereco(endereco);
+		contato.setDataNascimento(dataNascimento);
+		
+		ContatoDAO dao = new ContatoDAO();
+		dao.adiciona(contato);
+		
+		out.println("<p>");
+		out.println("Contato Adicionado!");
+		out.println("</p>");
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		
+		String nome = request.getParameter("nome");
+		String email = request.getParameter("email");
+		String endereco = request.getParameter("endereco");
+		String dataTexto = request.getParameter("dataNascimento");
+		
+		out.println("GET Detected");
 		out.println(nome + " " + email + " " + endereco + " " + dataTexto);
 	}
 }
