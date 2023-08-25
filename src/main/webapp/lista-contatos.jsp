@@ -9,13 +9,12 @@
 <title>Lista Contatos</title>
 </head>
 <body>
-	<h1>Contém tabela com link para email.</h1>
-
+	<c:import url="head.jsp" />
+	
 	<jsp:useBean id="dao" class="dao.ContatoDAO" />
 	
 	<table>
 	<c:forEach var="contato" items="${dao.lista}">
-		${ dao.pesquisar(5) }
 		<tr>
 			<td>${contato.nome}</td>
 			<td>
