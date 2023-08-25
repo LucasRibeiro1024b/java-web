@@ -19,12 +19,12 @@
 		<tr>
 			<td>${contato.nome}</td>
 			<td>
-				<c:if test="${not empty contato.email}">
-					<a href="mailto:${contato.email}">${contato.email}</a>
-				</c:if>
-				<c:if test="${ empty contato.email }">
-					<a>Email not informed</a>
-				</c:if>
+				<c:choose>
+					<c:when test="${not empty contato.email }">
+						<a href="mailto:${contato.email }">${contato.email }</a>
+					</c:when>
+					<c:otherwise>Email not informed</c:otherwise>
+				</c:choose>
 			</td>
 			<td>${contato.endereco}</td>
 			<td>${contato.dataNascimento.time}</td>
