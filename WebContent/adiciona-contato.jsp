@@ -1,14 +1,14 @@
-<html>
-<head>
-	<meta charset="UTF-8">
-</head>
-<body>
-	<h2>POST</h2>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib tagdir="/WEB-INF/tags" prefix="ctags" %>
+
+<c:import url="head.jsp" />
+
+<h2>POST</h2>
 <form action="adicionaContato" method="post">
 Nome: <input type="text" name="nome" /><br />
 E-mail: <input type="text" name="email" /><br />
-EndereÃ§o: <input type="text" name="endereco" /><br />
-Data Nascimento: <input type="text" name="dataNascimento" /><br />
+Endereço: <input type="text" name="endereco" /><br />
+Data Nascimento: <ctags:campoData id="dataNascimento" /><br />
 <input type="submit" value="Gravar" />
 </form>
 
@@ -16,9 +16,9 @@ Data Nascimento: <input type="text" name="dataNascimento" /><br />
 <form action="adicionaContato" method="get">
 Nome: <input type="text" name="nome" /><br />
 E-mail: <input type="text" name="email" /><br />
-EndereÃ§o: <input type="text" name="endereco" /><br />
-Data Nascimento: <input type="text" name="dataNascimento" /><br />
+Endereço: <input type="text" name="endereco" /><br />
+Data Nascimento: <ctags:campoData id="dataNascimento" /><br />
 <input type="submit" value="Gravar" />
 </form>
-</body>
-</html>
+
+<c:import url="footer.jsp" />
